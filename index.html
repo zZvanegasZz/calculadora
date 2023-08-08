@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="calculadora.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin-top: 50px;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .calculator label, .calculator input, .calculator button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .calculator input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .calculator button {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora</h1>
+        <label for="num1">Primer número:</label>
+        <input type="number" id="num1">
+        <label for="num2">Segundo número:</label>
+        <input type="number" id="num2">
+
+        <button onclick="sumar()">+</button>
+        <button onclick="restar()">-</button>
+        <button onclick="multiplicar()">*</button>
+        <button onclick="dividir()">/</button>
+        <button onclick="potenciar()">^</button>
+        <button onclick="concatenar()">Concatenar</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function sumar() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("resultado").textContent = "Resultado: " + (num1 + num2);
+        }
+
+        function restar() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("resultado").textContent = "Resultado: " + (num1 - num2);
+        }
+
+        function multiplicar() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            document.getElementById("resultado").textContent = "Resultado: " + (num1 * num2);
+        }
+
+        function dividir() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            if (num2 !== 0) {
+                document.getElementById("resultado").textContent = "Resultado: " + (num1 / num2);
+            } else {
+                document.getElementById("resultado").textContent = "Error: No se puede dividir por cero.";
+            }
+        }
+
+        function potenciar() {
+            let base = parseFloat(document.getElementById("num1").value);
+            let exponente = parseFloat(document.getElementById("num2").value);
+            document.getElementById("resultado").textContent = "Resultado: " + Math.pow(base, exponente);
+        }
+
+        function concatenar() {
+            let cadena1 = document.getElementById("num1").value.toString();
+            let cadena2 = document.getElementById("num2").value.toString();
+            document.getElementById("resultado").textContent = "Resultado: " + (cadena1 + cadena2);
+        }
+    </script>
+</body>
+</html>
